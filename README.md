@@ -1,8 +1,8 @@
-# SSH File Transfer App 🚀
+# SSH-Connector 🚀
 
 ## Description
 
-**SSH File Transfer App** est une application graphique en Python utilisant **PyQt5**, **paramiko** et **SCP** pour gérer les transferts de fichiers via SSH. Elle permet aux utilisateurs de se connecter à un serveur SSH (comme un Raspberry Pi), de transférer des fichiers, de naviguer dans les répertoires distants, et de supprimer ou télécharger des fichiers à distance.
+**SSH-Connector** est une application graphique en Python utilisant **PyQt5**, **paramiko** et **SCP** pour gérer les transferts de fichiers via SSH. Elle permet aux utilisateurs de se connecter à un serveur SSH (comme un Raspberry Pi), de transférer des fichiers, de naviguer dans les répertoires distants, et de supprimer ou télécharger des fichiers à distance.
 
 L'application dispose d'une interface intuitive pour :
 - Se connecter à un serveur SSH avec un nom d'utilisateur et un mot de passe.
@@ -22,18 +22,34 @@ L'application dispose d'une interface intuitive pour :
 - Python 3.6+ installé sur votre machine.
 - **PyQt5**, **paramiko** et **scp** sont nécessaires pour exécuter cette application.
 
-### Étapes d'installation
+### SSH doit être activé sur votre serveur
 
-1. **Clonez le dépôt** :
+**Important** : L'application nécessite que le service SSH soit activé sur votre serveur afin de permettre les connexions sécurisées via le protocole SSH. 
+
+#### Sur un Raspberry Pi (par exemple) :
+1. **Activer SSH** : Si SSH n'est pas déjà activé, vous devez l'activer via la commande suivante :
    ```bash
-   git clone https://github.com/your-username/SSH-CONNECT.git
-   cd SSH-CONNECT
+   sudo systemctl enable ssh
+   sudo systemctl start ssh
+Vérifier si SSH est actif :
+
+sudo systemctl status ssh
+Configurer le pare-feu : Si vous avez un pare-feu actif, assurez-vous que le port 22 (par défaut pour SSH) est ouvert :
+
+sudo ufw allow 22
+Après avoir vérifié que SSH est activé sur votre serveur, vous pouvez vous connecter via l'application.
+
+Étapes d'installation
+Clonez le dépôt :
+
+git clone https://github.com/your-username/ssh-connector.git
+cd ssh-connector
 Installez les dépendances :
+
 pip install -r requirements.txt
-
 Lancez l'application :
-python app.py
 
+python app.py
 📂 Utilisation
 Se connecter à un serveur SSH
 Ouvrez l'application.
@@ -68,14 +84,15 @@ Si vous devez configurer un utilisateur SSH ou transférer des fichiers manuelle
 
 Créer un nouvel utilisateur via SSH
 Pour créer un nouvel utilisateur et lui attribuer un mot de passe :
+
 sudo adduser newuser
 sudo passwd newuser
-
 Transfert de fichiers avec SCP
 Envoyer un fichier vers le serveur :
-scp localfile.txt user@hostname:/remote/path
 
+scp localfile.txt user@hostname:/remote/path
 Télécharger un fichier depuis le serveur :
+
 scp user@hostname:/remote/path/remotefile.txt /local/path
 🎨 Apparence de l'application
 L'application dispose d'une interface graphique simple et élégante avec des boutons arrondis et des couleurs attrayantes :
@@ -93,10 +110,11 @@ paramiko : pour établir des connexions SSH et SFTP.
 
 scp : pour transférer des fichiers via SCP.
 
-APPARENCE :
-<img width="1919" height="1031" alt="Capture d&#39;écran 2026-02-06 161652" src="https://github.com/user-attachments/assets/7d341a84-1b40-40de-a85f-eeb3277a6dac" />
-
 PyQt5 : pour l'interface graphique.
+
+APPARENCE :
+<img width="1919" height="1031" alt="Capture d&#39;écran 2026-02-06 161652" src="https://github.com/user-attachments/assets/681ccee8-0941-4441-bd7d-26b606ab051d" />
+
 
 🚀 Contribuer
 Les contributions sont les bienvenues ! Si vous souhaitez améliorer l'application, n'hésitez pas à ouvrir une issue ou à soumettre une pull request.
