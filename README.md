@@ -32,8 +32,9 @@ L'application dispose d'une interface intuitive pour :
    sudo systemctl enable ssh
    sudo systemctl start ssh
 Vérifier si SSH est actif :
+   ```bash
+   sudo systemctl status ssh
 
-sudo systemctl status ssh
 Configurer le pare-feu : Si vous avez un pare-feu actif, assurez-vous que le port 22 (par défaut pour SSH) est ouvert :
 
 sudo ufw allow 22
