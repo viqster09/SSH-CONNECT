@@ -35,7 +35,7 @@ pip install -r requirements.txt
 
 Lancez l'application :
 ```bash
-python SSH-CONNECTOR.py
+python GUI.py
 ````
 
 🎨 Apparence de l'application
