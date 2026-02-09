@@ -22,78 +22,22 @@ L'application dispose d'une interface intuitive pour :
 - Python 3.6+ installé sur votre machine.
 - **PyQt5**, **paramiko** et **scp** sont nécessaires pour exécuter cette application.
 
-### SSH doit être activé sur votre serveur
-
-**Important** : L'application nécessite que le service SSH soit activé sur votre serveur afin de permettre les connexions sécurisées via le protocole SSH. 
-
-#### Sur un Raspberry Pi (par exemple) :
-1. **Activer SSH** : Si SSH n'est pas déjà activé, vous devez l'activer via la commande suivante :
-   ```bash
-   sudo systemctl enable ssh
-   sudo systemctl start ssh
-Vérifier si SSH est actif :   
-sudo systemctl status ssh
-
-Configurer le pare-feu : Si vous avez un pare-feu actif, assurez-vous que le port 22 (par défaut pour SSH) est ouvert :
-
-sudo ufw allow 22
-Après avoir vérifié que SSH est activé sur votre serveur, vous pouvez vous connecter via l'application.
-
 Étapes d'installation
 Clonez le dépôt :
-
+```bash
 git clone https://github.com/your-username/ssh-connector.git
 cd ssh-connector
+````
 Installez les dépendances :
-
+```bash
 pip install -r requirements.txt
+````
+
 Lancez l'application :
+```bash
+python SSH-CONNECTOR.py
+````
 
-python app.py
-📂 Utilisation
-Se connecter à un serveur SSH
-Ouvrez l'application.
-
-Remplissez les champs de connexion avec l'adresse IP du serveur, le port, le nom d'utilisateur et le mot de passe.
-
-Cliquez sur Se connecter pour établir une connexion SSH.
-
-Une fois connecté, la liste des fichiers du serveur s'affichera dans la fenêtre.
-
-Transfert de fichiers
-Envoyer un fichier : Cliquez sur le bouton Envoyer un fichier, puis sélectionnez le fichier à envoyer. Le fichier sera transféré vers le répertoire actuel sur le serveur.
-
-Télécharger un fichier : Sélectionnez un fichier dans la liste, puis cliquez sur Télécharger un fichier pour le télécharger sur votre machine locale.
-
-Navigation dans les répertoires
-Accéder aux sous-répertoires : Double-cliquez sur un dossier pour entrer dans le répertoire. Si vous êtes dans un répertoire limité (par exemple /home/user), l'accès à des répertoires parents est restreint.
-
-Revenir au répertoire parent : Cliquez sur .. (Parent Directory) pour revenir au répertoire parent.
-
-Supprimer un fichier
-Sélectionnez un fichier dans la liste et cliquez sur Supprimer un fichier pour supprimer le fichier distant.
-
-Rafraîchir la liste des fichiers
-Cliquez sur le bouton Rafraîchir les fichiers pour mettre à jour la liste des fichiers du répertoire actuel sur le serveur.
-
-Se déconnecter
-Cliquez sur Se déconnecter pour fermer la connexion SSH et SFTP.
-
-💻 Commandes SSH pour l'utilisation du serveur
-Si vous devez configurer un utilisateur SSH ou transférer des fichiers manuellement, voici quelques commandes utiles :
-
-Créer un nouvel utilisateur via SSH
-Pour créer un nouvel utilisateur et lui attribuer un mot de passe :
-
-sudo adduser newuser
-sudo passwd newuser
-Transfert de fichiers avec SCP
-Envoyer un fichier vers le serveur :
-
-scp localfile.txt user@hostname:/remote/path
-Télécharger un fichier depuis le serveur :
-
-scp user@hostname:/remote/path/remotefile.txt /local/path
 🎨 Apparence de l'application
 L'application dispose d'une interface graphique simple et élégante avec des boutons arrondis et des couleurs attrayantes :
 
